@@ -32,6 +32,8 @@ import static org.junit.Assert.*;
 public class IteratorFactoryTests {
 
     @Test public void testNoConfig() {
+    Properties props = new Properties();
+    IteratorFactory.setProperties(props);
 	Iterator<String> it = IteratorFactory.tokenize(getReader());
 	assertEquals("this", it.next());
 	assertEquals("is", it.next());
