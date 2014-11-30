@@ -58,13 +58,13 @@ class SvdlibcSparseTextFileTransformer implements FileTransformer {
             int numTotalNonZeros = Integer.parseInt(rowColNonZeroCount[2]);
 
             // Write out the header for the new matrix file.
-            writer.printf("%d %d %d\n", numRows, numCols, numTotalNonZeros);
+            writer.println(numRows + " " + numCols + " " + numTotalNonZeros);
 
             line = br.readLine();
             // Traverse each column in the matrix.
             for (int col = 0; line != null && col < numCols; ++col) {
                 int numNonZeros = Integer.parseInt(line);
-                writer.printf("%d\n", numNonZeros);
+                writer.println(numNonZeros);
 
                 // Transform each of the non zero values for the new matrix
                 // file.
@@ -73,8 +73,9 @@ class SvdlibcSparseTextFileTransformer implements FileTransformer {
                     String[] rowValue = line.split("\\s+");
                     int row = Integer.parseInt(rowValue[0]);
                     double value = Double.parseDouble(rowValue[1]);
-                    writer.printf("%d %f\n", row,
-                                  transform.transform(row, col, value));
+                    StringBuilder stringBuilder = new StringBuilder();
+                    stringBuilder.append(row).append(" ").append(transform.transform(row, col, value));
+                    writer.println(stringBuilder.toString());
                 }
             }
 

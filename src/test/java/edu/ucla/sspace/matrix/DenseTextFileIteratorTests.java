@@ -75,7 +75,7 @@ public class DenseTextFileIteratorTests {
         
         for (int r = 0; r < testMatrix.length; ++r) {
             for (int c = 0; c < testMatrix[0].length; ++c)
-                pw.printf("%f ", (float)testMatrix[r][c]);
+                pw.print((float)testMatrix[r][c] + " ");
             pw.println();
         }
 

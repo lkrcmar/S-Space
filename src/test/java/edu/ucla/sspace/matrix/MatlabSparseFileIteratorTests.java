@@ -71,7 +71,7 @@ public class MatlabSparseFileIteratorTests {
         PrintWriter pw = new PrintWriter(f);
         for (int r = 0; r < testMatrix.length; ++r)
             for (int c = 0; c < testMatrix[0].length; ++c)
-                pw.printf("%d %d %f\n", r+1, c+1, testMatrix[r][c]);
+                pw.println((r+1) + " " + (c+1) + " " + testMatrix[r][c]);
         pw.close();
         return f;
     }

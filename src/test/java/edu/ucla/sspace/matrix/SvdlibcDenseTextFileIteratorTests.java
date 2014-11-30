@@ -74,11 +74,11 @@ public class SvdlibcDenseTextFileIteratorTests {
         File f = File.createTempFile("unit-test",".dat");
         PrintWriter pw = new PrintWriter(f);
         
-        pw.printf("%d %d\n", testMatrix.length, testMatrix[0].length);
+        pw.println(testMatrix.length + " " + testMatrix[0].length);
 
         for (int r = 0; r < testMatrix.length; ++r) {
             for (int c = 0; c < testMatrix[0].length; ++c)
-                pw.printf("%f ", (float)testMatrix[r][c]);
+                pw.print((float)testMatrix[r][c] + " ");
             pw.println();
         }
 
