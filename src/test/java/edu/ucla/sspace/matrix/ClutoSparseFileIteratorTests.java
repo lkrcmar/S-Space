@@ -74,14 +74,15 @@ public class ClutoSparseFileIteratorTests {
         File f = File.createTempFile("unit-test",".dat");
         PrintWriter pw = new PrintWriter(f);
         
-        pw.printf("%d %d %d\n", testMatrix.length, testMatrix[0].length, 7);
-
-        for (int r = 0; r < testMatrix.length; ++r) {
-            for (int c = 0; c < testMatrix[0].length; ++c)
-                if (testMatrix[r][c] != 0d)
-                    pw.printf("%d %f ", c+1, (float)testMatrix[r][c]);
-            pw.println();
-        }
+        pw.println(testMatrix.length + " " + testMatrix[0].length + " " + 7);
+        
+		for (int r = 0; r < testMatrix.length; ++r) {
+			for (int c = 0; c < testMatrix[0].length; ++c)
+				if (testMatrix[r][c] != 0d)
+					pw.print((c + 1) + " " + (float) testMatrix[r][c] + " ");
+			pw.println();
+		}
+		pw.close();
 
         pw.close();
         return f;

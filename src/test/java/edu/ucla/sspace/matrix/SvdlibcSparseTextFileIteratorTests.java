@@ -74,13 +74,13 @@ public class SvdlibcSparseTextFileIteratorTests {
         File f = File.createTempFile("unit-test",".dat");
         PrintWriter pw = new PrintWriter(f);
         
-        pw.printf("%d %d %d\n", testMatrix.length, testMatrix[0].length, 7);
+        pw.println(testMatrix.length + " " + testMatrix[0].length + " " + 7);
 
         for (int c = 0; c < testMatrix[0].length; ++c) {
-            pw.printf("%d\n", numNonZeros[c]);
+            pw.println(numNonZeros[c]);
             for (int r = 0; r < testMatrix.length; ++r)
                 if (testMatrix[r][c] != 0d)
-                    pw.printf("%d %f\n", r, (float)testMatrix[r][c]);
+                    pw.println(r + " " +  (float)testMatrix[r][c]);
         }
 
         pw.close();

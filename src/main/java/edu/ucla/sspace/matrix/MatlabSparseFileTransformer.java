@@ -58,8 +58,9 @@ public class MatlabSparseFileTransformer implements FileTransformer {
                 int row = Integer.parseInt(rowColEntry[0]);
                 int col = Integer.parseInt(rowColEntry[1]);
                 double value = Double.parseDouble(rowColEntry[2]);
-                writer.printf("%d %d %f\n", row, col, 
-                              transform.transform(row-1, col-1, value));
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.append(row).append(" ").append(col).append(" ").append(transform.transform(row-1, col-1, value));
+                writer.println(stringBuilder.toString());
             }
             writer.close();
 
